@@ -20,10 +20,14 @@ uvicorn backend.app:app --reload --port 8000
 - lint: не настроено.
 
 ## Карта репо
-- `backend/app.py` — FastAPI-приложение, LLM-промпты, курсы, статика.
+- `backend/app.py` — сборка FastAPI-приложения и раздача статики.
+- `backend/generation.py` — роуты генерации плана, модулей и теории (`/api/plan`, `/api/topic`, `/api/theory`).
+- `backend/courses.py` — CRUD-роуты курсов (`/api/courses`).
+- `backend/llm.py` — LLM-клиент Groq, функции `llm()` и `ask_json()`.
+- `backend/prompts.py` — промпты генерации (`PLAN_PROMPT`, `TOPIC_PROMPT`, `THEORY_COMMON`, `KIND_PROMPTS`).
+- `backend/schemas.py` — Pydantic-схемы с валидацией (`Goal`, `Course`, `TopicRequest`, `ModuleRequest`).
 - `backend/books.py` — загрузка PDF, оглавление, текст разделов.
 - `backend/book_plan.py` — выбор разделов учебника под цель.
-- `backend/__pycache__/` — сгенерированное, в git попало ошибочно.
 - `frontend/index.html` — единственная страница.
 - `frontend/js/app.js` — состояние экрана и сценарии.
 - `frontend/js/api.js` — HTTP-клиент курсов.
@@ -42,7 +46,11 @@ uvicorn backend.app:app --reload --port 8000
 - id курсов/книг — 8 hex-символов, валидируются регуляркой.
 
 ## Хочешь X — смотри Y
-- Поменять промпт плана/теории → `backend/app.py` (`PLAN_PROMPT`, `TOPIC_PROMPT`, `THEORY_COMMON`, `KIND_PROMPTS`).
+- Поменять промпт плана/теории → `backend/prompts.py` (`PLAN_PROMPT`, `TOPIC_PROMPT`, `THEORY_COMMON`, `KIND_PROMPTS`).
+- Роуты генерации → `backend/generation.py` (`/api/plan`, `/api/topic`, `/api/theory`).
+- CRUD курсов → `backend/courses.py` (`/api/courses`).
+- LLM-клиент → `backend/llm.py` (`llm()`, `ask_json()`).
+- Валидация входных данных → `backend/schemas.py`.
 - Логику выбора глав PDF → `backend/book_plan.py`.
 - Парсинг оглавления → `backend/books.py` (`toc_*`, `parse_page_range`).
 - HTTP-вызовы фронтенда → `frontend/js/api.js`, `frontend/js/books.js`.
