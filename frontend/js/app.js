@@ -18,6 +18,18 @@ const bookSel = document.getElementById("book");
 
 let current = null; // { goal, level, plan, id? }
 let viewId = 0; // меняется при смене экрана: поздний ответ не затрёт другой экран
+const pendingRequests = new Set();
+
+function startRequest() {
+  const controller = new AbortController();
+  pendingRequests.add(controller);
+  return controller;
+}
+
+function cancelPendingRequests() {
+  for (const controller of pendingRequests) controller.abort();
+  pendingRequests.clear();
+}
 
 // ---------- режим и выбор учебника ----------
 
@@ -53,12 +65,16 @@ async function refreshSaved() {
 }
 
 async function openCourse(id) {
+  cancelPendingRequests();
+  const controller = startRequest();
   try {
-    current = await getCourse(id);
+    current = await getCourse(id, controller.signal);
     showPlan();
     saveBtn.hidden = true;
   } catch (err) {
-    renderError(out, err.message);
+    if (err.name !== "AbortError") renderError(out, err.message);
+  } finally {
+    pendingRequests.delete(controller);
   }
 }
 
@@ -78,6 +94,7 @@ async function expandTopic(i, button) {
   const topic = course.plan.topics[i];
   button.disabled = true;
   button.textContent = "Генерирую...";
+  const controller = startRequest();
   try {
     const { modules } = await createModules({
       goal: course.goal,
@@ -86,18 +103,23 @@ async function expandTopic(i, button) {
       topics: course.plan.topics.map((t) => t.title),
       topic: topic.title,
       summary: topic.summary,
-    });
+    }, controller.signal);
     topic.modules = modules;
     if (course === current && view === viewId) showPlan();
-    if (course.id) await updateCourse(course.id, course);
+    if (course.id) await updateCourse(course.id, course, controller.signal);
   } catch (err) {
-    button.disabled = false;
-    button.textContent = "Разбить на модули";
-    alert(err.message);
+    if (err.name !== "AbortError") {
+      button.disabled = false;
+      button.textContent = "Разбить на модули";
+      alert(err.message);
+    }
+  } finally {
+    pendingRequests.delete(controller);
   }
 }
 
 async function openModule(i, j) {
+  cancelPendingRequests();
   const course = current;
   const topic = course.plan.topics[i];
   const mod = topic.modules[j];
@@ -125,6 +147,7 @@ async function openModule(i, j) {
     return;
   }
   renderLoading(body);
+  const controller = startRequest();
   try {
     const { theory } = await createTheory({
       goal: course.goal,
@@ -135,21 +158,26 @@ async function openModule(i, j) {
       summary: mod.summary,
       kind: mod.kind,
       also: mod.also || "",
-    });
+    }, controller.signal);
     mod.theory = theory;
     if (view === viewId) renderMarkdown(body, theory);
-    if (course.id) await updateCourse(course.id, course);
+    if (course.id) await updateCourse(course.id, course, controller.signal);
   } catch (err) {
-    if (view === viewId) renderError(body, err.message);
+    if (view === viewId && err.name !== "AbortError") renderError(body, err.message);
+  } finally {
+    pendingRequests.delete(controller);
   }
 }
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  cancelPendingRequests();
+  const controller = startRequest();
   const data = new FormData(form);
   const params = { goal: data.get("goal"), level: data.get("level") };
   const fromBook = mode.value === "book";
   if (fromBook && !bookSel.value) {
+    pendingRequests.delete(controller);
     renderError(out, "Выберите или загрузите учебник");
     return;
   }
@@ -159,17 +187,18 @@ form.addEventListener("submit", async (e) => {
   renderLoading(out);
   try {
     const plan = fromBook
-      ? await createBookPlan({ ...params, book_id: bookSel.value })
-      : await createPlan(params);
+      ? await createBookPlan({ ...params, book_id: bookSel.value }, controller.signal)
+      : await createPlan(params, controller.signal);
     current = { ...params, plan };
     showPlan();
     saveBtn.hidden = false;
     saveBtn.disabled = false;
     saveBtn.textContent = "Сохранить план";
   } catch (err) {
-    renderError(out, err.message);
+    if (err.name !== "AbortError") renderError(out, err.message);
   } finally {
     btn.disabled = false;
+    pendingRequests.delete(controller);
   }
 });
 

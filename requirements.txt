@@ -1,5 +1,6 @@
-fastapi
-uvicorn
-groq
-python-dotenv
-pypdf
+fastapi==0.159.1
+uvicorn==0.54.0
+groq==1.7.0
+python-dotenv==1.2.4
+pymupdf==2.0
+python-multipart==0.0.32

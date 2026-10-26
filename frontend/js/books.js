@@ -1,18 +1,16 @@
 // Учебники: загрузка PDF и ручная настройка оглавления
 
+import { request as apiRequest } from "./api.js";
+
 const DEFAULT_PATTERN = String.raw`^(?P<title>.+?)[\s.·…]{2,}(?P<page>\d+)\s*$`;
 
 async function request(url, opts) {
-  const r = await fetch(url, opts);
-  const data = await r.json();
-  if (!r.ok) {
-    throw new Error(typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail));
-  }
-  return data;
+  return apiRequest(url, opts);
 }
 
-const post = (body) => ({
+const post = (body, signal) => ({
   method: "POST",
+  signal,
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(body),
 });
