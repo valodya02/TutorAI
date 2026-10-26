@@ -30,10 +30,16 @@ class TopicRequest(Goal):
     summary: str = Field(default="", max_length=1000)
 
 
+class ModuleBook(BaseModel):
+    section: int
+    page_start: int
+    page_end: int
+
+
 class ModuleRequest(Goal):
     topic: ShortText
     modules: list[ShortText] = Field(max_length=30)
-    module: ShortText
+    module: ShortText | dict = Field(default="", max_length=500)
     summary: str = Field(default="", max_length=1000)
     kind: str = Field(default="concept", max_length=20)
     also: str = Field(default="", max_length=20)

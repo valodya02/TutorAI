@@ -38,9 +38,48 @@ def theory(body: ModuleRequest):
     system = THEORY_COMMON + "\n\n" + KIND_PROMPTS[kind]
     if body.also in KINDS and body.also != kind:
         system += "\n\nУчти требования второго типа:\n" + KIND_PROMPTS[body.also]
+
+    # Обработка module: может быть строкой или dict с полем book
+    module_title = body.module
+    book_info = None
+    if isinstance(body.module, dict):
+        module_title = body.module.get("title", "")
+        book = body.module.get("book")
+        if book and isinstance(book, dict):
+            book_info = {
+                "section": book.get("section"),
+                "page_start": book.get("page_start"),
+                "page_end": book.get("page_end"),
+                "book_id": body.module.get("book_id"),
+            }
+
+    # Извлекаем заголовки модулей (могут быть объекты с book)
+    module_titles = []
+    for m in body.modules:
+        if isinstance(m, dict):
+            module_titles.append(m.get("title", ""))
+        else:
+            module_titles.append(str(m))
     user = (f"Цель курса: {body.goal}\nУровень: {body.level}\nТема: {body.topic}\n"
-            f"Модули темы по порядку: {'; '.join(body.modules)}\n"
-            f"Напиши теорию для модуля: {body.module}\nКратко о модуле: {body.summary}")
+            f"Модули темы по порядку: {'; '.join(module_titles)}\n"
+            f"Напиши теорию для модуля: {module_title}\nКратко о модуле: {body.summary}")
+
+    # Добавляем информацию об учебнике, если есть
+    if book_info:
+        book_id = book_info["book_id"]
+        if book_id:
+            from backend.books import read_book
+            try:
+                book = read_book(book_id)
+                section = book_info["section"]
+                if 0 <= section < len(book.get("toc", [])):
+                    toc_entry = book["toc"][section]
+                    user += (f"\n\nИсточник: учебник «{book['title']}», "
+                            f"раздел «{toc_entry['title']}» (с. {book_info['page_start']}–{book_info['page_end']}). "
+                            f"Используй этот текст как основу для теории.")
+            except Exception:
+                pass  # Если учебник не прочитать, просто продолжаем без него
+
     text, reason = llm(system, user, 5000, effort="medium")
     if not text:
         raise HTTPException(502, "Модель вернула пустой ответ")

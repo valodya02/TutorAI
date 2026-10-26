@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BOOKS = ROOT / "data" / "books"
 BOOKS.mkdir(parents=True, exist_ok=True)
 
-DEFAULT_PATTERN = r"^(?P<title>.+?)[\s.·…]{2,}(?P<page>\d+)\s*$"
+DEFAULT_PATTERN = r"^(?P<title>(?:\d+(?:\.\d+)*\s+)?[^.]+?)[\s.·…]{2,}(?P<page>\d+)\s*$"
 
 router = APIRouter(prefix="/api/books")
 
@@ -94,8 +94,26 @@ def toc_from_text(doc, toc_pages: str, offset: int, pattern: str) -> list[dict]:
             page = int(m.group("page")) + offset
             if not (1 <= page <= doc.page_count):
                 continue
+            # Определение уровня на основе нумерации или контекстных маркеров
             num = re.match(r"^(\d+(?:\.\d+)*)\.?\s", title)
-            level = num.group(1).count(".") + 1 if num else 1
+            if num:
+                level = num.group(1).count(".") + 1
+            else:
+                # Заголовки без цифровой нумерации: определяем уровень по маркерам
+                title_lower = title.lower()
+                if any(title_lower.startswith(m) for m in ("глава ", "часть ", "введение ", "заключение ", "приложение ")):
+                    level = 1
+                elif any(title_lower.startswith(m) for m in ("предисловие ", "благодарности ", "условные обозначения ")):
+                    level = 1
+                else:
+                    # Фильтрация артефактов: слишком короткие заголовки (< 5 слов) без цифровой нумерации
+                    # скорее всего являются обрывками текста, а не реальными разделами
+                    word_count = len(title.split())
+                    if word_count < 4:
+                        continue
+                    # Неизвестные заголовки считаем уровня 1 (подразделы внутри глав)
+                    level = 1
+
             entries.append({"title": title, "level": level, "page_start": page})
     return add_ranges(entries, doc.page_count)
 

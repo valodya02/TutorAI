@@ -104,7 +104,27 @@ async function expandTopic(i, button) {
       topic: topic.title,
       summary: topic.summary,
     }, controller.signal);
-    topic.modules = modules;
+    // Превращаем модули в объекты с book, если он есть в источнике
+    const book_id = course.plan.book_id;
+    topic.modules = modules.map((m) => {
+      // Если модуль пришёл с book из курса по учебнику, сохраняем его
+      if (topic.source === "book" && m.book) {
+        return {
+          title: m.title,
+          summary: m.summary,
+          kind: m.kind || "concept",
+          also: m.also || "",
+          book: m.book,
+          book_id: book_id,
+        };
+      }
+      return {
+        title: m.title,
+        summary: m.summary,
+        kind: m.kind || "concept",
+        also: m.also || "",
+      };
+    });
     if (course === current && view === viewId) showPlan();
     if (course.id) await updateCourse(course.id, course, controller.signal);
   } catch (err) {
@@ -149,12 +169,22 @@ async function openModule(i, j) {
   renderLoading(body);
   const controller = startRequest();
   try {
+    // Подготовка списка модулей: если есть book, передаём полный объект
+    const modulesList = topic.modules.map((m) => {
+      if (m.book) return { title: m.title, book: m.book, book_id: course.plan.book_id };
+      return m.title;
+    });
+    // Подготовка текущего модуля
+    const moduleData = mod.book
+      ? { title: mod.title, book: mod.book, book_id: course.plan.book_id }
+      : mod.title;
+
     const { theory } = await createTheory({
       goal: course.goal,
       level: course.level,
       topic: topic.title,
-      modules: topic.modules.map((m) => m.title),
-      module: mod.title,
+      modules: modulesList,
+      module: moduleData,
       summary: mod.summary,
       kind: mod.kind,
       also: mod.also || "",
