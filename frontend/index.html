@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-репетитор</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+  <h1>AI-репетитор</h1>
+  <form id="form">
+    <label>Цель обучения
+      <textarea name="goal" required placeholder="Например: выучить SQL для анализа данных"></textarea>
+    </label>
+    <label>Текущий уровень
+      <select name="level">
+        <option>начинающий</option>
+        <option>средний</option>
+        <option>продвинутый</option>
+      </select>
+    </label>
+    <div id="bookbox" hidden>
+      <label>Учебник
+        <select name="book_id" id="book"></select>
+      </label>
+      <details id="books">
+        <summary>Загрузить учебник и настроить оглавление</summary>
+      </details>
+    </div>
+    <div class="row">
+      <select name="mode" id="mode">
+        <option value="ai">Генерация с ИИ</option>
+        <option value="book">На основе учебника</option>
+      </select>
+      <button id="btn">Составить план</button>
+    </div>
+  </form>
+  <div id="out"></div>
+  <button id="save" type="button" hidden>Сохранить план</button>
+  <h2>Сохранённые планы</h2>
+  <div id="saved"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

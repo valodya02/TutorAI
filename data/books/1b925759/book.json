@@ -1,0 +1,1304 @@
+{
+  "id": "1b925759",
+  "title": "Computer_Networks",
+  "pages": 912,
+  "source": "manual",
+  "sections": 215,
+  "toc": [
+    {
+      "title": "Предисловие",
+      "level": 1,
+      "page_start": 13,
+      "page_end": 13
+    },
+    {
+      "title": "Что нового в данном издании",
+      "level": 1,
+      "page_start": 13,
+      "page_end": 14
+    },
+    {
+      "title": "Целевая аудитория",
+      "level": 1,
+      "page_start": 15,
+      "page_end": 15
+    },
+    {
+      "title": "Что особенного в этой книге?",
+      "level": 1,
+      "page_start": 15,
+      "page_end": 15
+    },
+    {
+      "title": "Нисходящий подход",
+      "level": 1,
+      "page_start": 15,
+      "page_end": 16
+    },
+    {
+      "title": "Интернет как центральная тема книги",
+      "level": 1,
+      "page_start": 17,
+      "page_end": 17
+    },
+    {
+      "title": "Обучение принципам функционирования сетей",
+      "level": 1,
+      "page_start": 17,
+      "page_end": 17
+    },
+    {
+      "title": "Примеры к книге",
+      "level": 1,
+      "page_start": 18,
+      "page_end": 18
+    },
+    {
+      "title": "Педагогические аспекты",
+      "level": 1,
+      "page_start": 19,
+      "page_end": 19
+    },
+    {
+      "title": "Взаимосвязи между главами",
+      "level": 1,
+      "page_start": 19,
+      "page_end": 19
+    },
+    {
+      "title": "Благодарности",
+      "level": 1,
+      "page_start": 20,
+      "page_end": 23
+    },
+    {
+      "title": "Глава 1. Компьютерные сети и Интернет",
+      "level": 1,
+      "page_start": 24,
+      "page_end": 65
+    },
+    {
+      "title": "1.1. Что такое Интернет",
+      "level": 2,
+      "page_start": 25,
+      "page_end": 33
+    },
+    {
+      "title": "1.1.1. Внутреннее устройство Интернета",
+      "level": 3,
+      "page_start": 26,
+      "page_end": 28
+    },
+    {
+      "title": "1.1.2. Описание служб",
+      "level": 3,
+      "page_start": 29,
+      "page_end": 30
+    },
+    {
+      "title": "1.1.3. Что такое протокол?",
+      "level": 3,
+      "page_start": 31,
+      "page_end": 33
+    },
+    {
+      "title": "1.2. Периферия сети",
+      "level": 2,
+      "page_start": 34,
+      "page_end": 49
+    },
+    {
+      "title": "1.2.1. Сети доступа",
+      "level": 3,
+      "page_start": 37,
+      "page_end": 45
+    },
+    {
+      "title": "1.2.2. Физические среды передачи данных",
+      "level": 3,
+      "page_start": 46,
+      "page_end": 49
+    },
+    {
+      "title": "1.3. Ядро сети",
+      "level": 2,
+      "page_start": 50,
+      "page_end": 65
+    },
+    {
+      "title": "1.3.1. Коммутация пакетов",
+      "level": 3,
+      "page_start": 50,
+      "page_end": 55
+    },
+    {
+      "title": "1.3.2. Коммутация каналов",
+      "level": 3,
+      "page_start": 56,
+      "page_end": 61
+    },
+    {
+      "title": "1.3.3. Сеть сетей",
+      "level": 3,
+      "page_start": 62,
+      "page_end": 65
+    },
+    {
+      "title": "с коммутацией пакетов",
+      "level": 1,
+      "page_start": 66,
+      "page_end": 106
+    },
+    {
+      "title": "1.4.1. Обзор задержек в сетях с коммутацией пакетов",
+      "level": 3,
+      "page_start": 67,
+      "page_end": 71
+    },
+    {
+      "title": "1.4.2. Задержка ожидания и потеря пакетов",
+      "level": 3,
+      "page_start": 72,
+      "page_end": 74
+    },
+    {
+      "title": "1.4.3. Общая задержка",
+      "level": 3,
+      "page_start": 75,
+      "page_end": 77
+    },
+    {
+      "title": "1.4.4. Пропускная способность в компьютерных сетях",
+      "level": 3,
+      "page_start": 78,
+      "page_end": 81
+    },
+    {
+      "title": "1.5. Уровни протоколов и модели их обслуживания",
+      "level": 2,
+      "page_start": 82,
+      "page_end": 91
+    },
+    {
+      "title": "1.5.1. Многоуровневая архитектура",
+      "level": 3,
+      "page_start": 82,
+      "page_end": 89
+    },
+    {
+      "title": "1.5.2. Инкапсуляция",
+      "level": 3,
+      "page_start": 90,
+      "page_end": 91
+    },
+    {
+      "title": "1.6. Атаки на сети",
+      "level": 2,
+      "page_start": 92,
+      "page_end": 97
+    },
+    {
+      "title": "1.7. История компьютерных сетей и Интернета",
+      "level": 2,
+      "page_start": 98,
+      "page_end": 105
+    },
+    {
+      "title": "1.7.1. Развитие коммутации пакетов: 1961–1972",
+      "level": 3,
+      "page_start": 98,
+      "page_end": 99
+    },
+    {
+      "title": "1.7.2. Развитие частных сетей и Интернета: 1972–1980",
+      "level": 3,
+      "page_start": 100,
+      "page_end": 100
+    },
+    {
+      "title": "1.7.3. Рост компьютерных сетей: 1980–1990",
+      "level": 3,
+      "page_start": 101,
+      "page_end": 102
+    },
+    {
+      "title": "1.7.4. Интернет-взрыв: 1990-е",
+      "level": 3,
+      "page_start": 103,
+      "page_end": 103
+    },
+    {
+      "title": "1.7.5. Новое тысячелетие",
+      "level": 3,
+      "page_start": 104,
+      "page_end": 105
+    },
+    {
+      "title": "1.8. Заключение",
+      "level": 2,
+      "page_start": 106,
+      "page_end": 106
+    },
+    {
+      "title": "План этой книги",
+      "level": 1,
+      "page_start": 107,
+      "page_end": 107
+    },
+    {
+      "title": "Оглавление",
+      "level": 1,
+      "page_start": 7,
+      "page_end": 108
+    },
+    {
+      "title": "Глава 2. Прикладной уровень",
+      "level": 1,
+      "page_start": 109,
+      "page_end": 139
+    },
+    {
+      "title": "2.1. Принципы сетевых приложений",
+      "level": 2,
+      "page_start": 110,
+      "page_end": 127
+    },
+    {
+      "title": "2.1.1. Архитектура сетевых приложений",
+      "level": 3,
+      "page_start": 112,
+      "page_end": 114
+    },
+    {
+      "title": "2.1.2. Взаимодействие процессов",
+      "level": 3,
+      "page_start": 115,
+      "page_end": 117
+    },
+    {
+      "title": "2.1.3. Транспортные службы, доступные приложениям",
+      "level": 3,
+      "page_start": 118,
+      "page_end": 120
+    },
+    {
+      "title": "2.1.4. Транспортные службы, предоставляемые Интернетом",
+      "level": 3,
+      "page_start": 121,
+      "page_end": 124
+    },
+    {
+      "title": "2.1.5. Протоколы прикладного уровня",
+      "level": 3,
+      "page_start": 125,
+      "page_end": 126
+    },
+    {
+      "title": "2.1.6. Сетевые приложения, рассматриваемые в данной книге",
+      "level": 3,
+      "page_start": 127,
+      "page_end": 127
+    },
+    {
+      "title": "2.2. Всемирная паутина и HTTP",
+      "level": 2,
+      "page_start": 128,
+      "page_end": 139
+    },
+    {
+      "title": "2.2.1. Обзор протокола HTTP",
+      "level": 3,
+      "page_start": 128,
+      "page_end": 130
+    },
+    {
+      "title": "2.2.2. Непостоянные и постоянные соединения",
+      "level": 3,
+      "page_start": 131,
+      "page_end": 133
+    },
+    {
+      "title": "2.2.3. Формат HTTP-сообщения",
+      "level": 3,
+      "page_start": 134,
+      "page_end": 139
+    },
+    {
+      "title": "cookie-файлы",
+      "level": 1,
+      "page_start": 140,
+      "page_end": 207
+    },
+    {
+      "title": "2.2.5. Веб-кэширование",
+      "level": 3,
+      "page_start": 143,
+      "page_end": 147
+    },
+    {
+      "title": "2.2.6. Метод GET с условием",
+      "level": 3,
+      "page_start": 148,
+      "page_end": 149
+    },
+    {
+      "title": "2.3. Передача файлов по протоколу FTP",
+      "level": 2,
+      "page_start": 150,
+      "page_end": 152
+    },
+    {
+      "title": "2.3.1. Команды и ответы протокола FTP",
+      "level": 3,
+      "page_start": 152,
+      "page_end": 152
+    },
+    {
+      "title": "2.4. Электронная почта в Интернете",
+      "level": 2,
+      "page_start": 153,
+      "page_end": 166
+    },
+    {
+      "title": "2.4.1. Протокол SMTP",
+      "level": 3,
+      "page_start": 156,
+      "page_end": 158
+    },
+    {
+      "title": "2.4.2. Сравнение с протоколом HTTP",
+      "level": 3,
+      "page_start": 159,
+      "page_end": 159
+    },
+    {
+      "title": "2.4.3. Форматы почтового сообщения",
+      "level": 3,
+      "page_start": 160,
+      "page_end": 160
+    },
+    {
+      "title": "2.4.4. Протоколы доступа к электронной почте",
+      "level": 3,
+      "page_start": 161,
+      "page_end": 166
+    },
+    {
+      "title": "2.5. DNS — служба каталогов Интернета",
+      "level": 2,
+      "page_start": 167,
+      "page_end": 184
+    },
+    {
+      "title": "2.5.1. Службы, предоставляемые DNS",
+      "level": 3,
+      "page_start": 168,
+      "page_end": 170
+    },
+    {
+      "title": "2.5.2. Как работает DNS",
+      "level": 3,
+      "page_start": 171,
+      "page_end": 177
+    },
+    {
+      "title": "2.5.3. Записи и сообщения DNS",
+      "level": 3,
+      "page_start": 178,
+      "page_end": 184
+    },
+    {
+      "title": "2.6. Одноранговые приложения",
+      "level": 2,
+      "page_start": 185,
+      "page_end": 199
+    },
+    {
+      "title": "2.6.1. Одноранговый файлообмен",
+      "level": 3,
+      "page_start": 185,
+      "page_end": 192
+    },
+    {
+      "title": "2.6.2. Распределенные хеш-таблицы",
+      "level": 3,
+      "page_start": 193,
+      "page_end": 199
+    },
+    {
+      "title": "2.7. Программирование сокетов: создание сетевых приложений",
+      "level": 2,
+      "page_start": 200,
+      "page_end": 207
+    },
+    {
+      "title": "2.7.1. Программирование сокетов с использованием UDP",
+      "level": 3,
+      "page_start": 201,
+      "page_end": 207
+    },
+    {
+      "title": "протокола TCP",
+      "level": 1,
+      "page_start": 208,
+      "page_end": 215
+    },
+    {
+      "title": "2.8. Заключение",
+      "level": 2,
+      "page_start": 214,
+      "page_end": 215
+    },
+    {
+      "title": "Глава 3. Транспортный уровень",
+      "level": 1,
+      "page_start": 216,
+      "page_end": 225
+    },
+    {
+      "title": "3.1. Введение и службы транспортного уровня",
+      "level": 2,
+      "page_start": 217,
+      "page_end": 222
+    },
+    {
+      "title": "3.1.1. Взаимодействие транспортного и сетевого уровней",
+      "level": 3,
+      "page_start": 219,
+      "page_end": 220
+    },
+    {
+      "title": "3.1.2. Транспортный уровень в Интернете",
+      "level": 3,
+      "page_start": 221,
+      "page_end": 222
+    },
+    {
+      "title": "3.2. Мультиплексирование и демультиплексирование",
+      "level": 2,
+      "page_start": 223,
+      "page_end": 225
+    },
+    {
+      "title": "без установления логического соединения",
+      "level": 1,
+      "page_start": 226,
+      "page_end": 227
+    },
+    {
+      "title": "с установлением логического соединения",
+      "level": 1,
+      "page_start": 228,
+      "page_end": 230
+    },
+    {
+      "title": "Веб-серверы и протокол TCP",
+      "level": 1,
+      "page_start": 231,
+      "page_end": 231
+    },
+    {
+      "title": "соединения",
+      "level": 1,
+      "page_start": 232,
+      "page_end": 232
+    },
+    {
+      "title": "3.3.1. Структура UDP-сегмента",
+      "level": 3,
+      "page_start": 237,
+      "page_end": 237
+    },
+    {
+      "title": "3.3.2. Контрольная сумма UDP",
+      "level": 3,
+      "page_start": 238,
+      "page_end": 238
+    },
+    {
+      "title": "Оглавление",
+      "level": 1,
+      "page_start": 8,
+      "page_end": 253
+    },
+    {
+      "title": "3.4. Принципы надежной передачи данных",
+      "level": 2,
+      "page_start": 240,
+      "page_end": 253
+    },
+    {
+      "title": "3.4.1. Создание протокола надежной передачи данных",
+      "level": 3,
+      "page_start": 242,
+      "page_end": 253
+    },
+    {
+      "title": "с конвейеризацией",
+      "level": 1,
+      "page_start": 254,
+      "page_end": 312
+    },
+    {
+      "title": "3.4.3. Возвращение на N пакетов назад (протокол GBN)",
+      "level": 3,
+      "page_start": 257,
+      "page_end": 261
+    },
+    {
+      "title": "3.4.4. Выборочное повторение (протокол SR)",
+      "level": 3,
+      "page_start": 262,
+      "page_end": 268
+    },
+    {
+      "title": "3.5. Протокол TCP: передача с установлением соединения",
+      "level": 2,
+      "page_start": 269,
+      "page_end": 302
+    },
+    {
+      "title": "3.5.1. TCP-соединение",
+      "level": 3,
+      "page_start": 269,
+      "page_end": 272
+    },
+    {
+      "title": "3.5.2. Структура TCP-сегмента",
+      "level": 3,
+      "page_start": 273,
+      "page_end": 278
+    },
+    {
+      "title": "3.5.3. Время оборота и интервал ожидания",
+      "level": 3,
+      "page_start": 279,
+      "page_end": 282
+    },
+    {
+      "title": "3.5.4. Надежная передача данных",
+      "level": 3,
+      "page_start": 283,
+      "page_end": 292
+    },
+    {
+      "title": "3.5.5. Управление потоком",
+      "level": 3,
+      "page_start": 293,
+      "page_end": 295
+    },
+    {
+      "title": "3.5.6. Управление TCP-соединением",
+      "level": 3,
+      "page_start": 296,
+      "page_end": 302
+    },
+    {
+      "title": "3.6. Принципы управления перегрузкой",
+      "level": 2,
+      "page_start": 303,
+      "page_end": 312
+    },
+    {
+      "title": "3.6.1. Причины и последствия перегрузки",
+      "level": 3,
+      "page_start": 304,
+      "page_end": 310
+    },
+    {
+      "title": "3.6.2. Подходы к управлению перегрузкой",
+      "level": 3,
+      "page_start": 311,
+      "page_end": 312
+    },
+    {
+      "title": "управления перегрузкой ABR сетей ATM",
+      "level": 1,
+      "page_start": 313,
+      "page_end": 337
+    },
+    {
+      "title": "3.7. Управление перегрузкой TCP",
+      "level": 2,
+      "page_start": 316,
+      "page_end": 332
+    },
+    {
+      "title": "3.7.1. Выравнивание скоростей передачи",
+      "level": 3,
+      "page_start": 329,
+      "page_end": 332
+    },
+    {
+      "title": "3.8. Заключение",
+      "level": 2,
+      "page_start": 333,
+      "page_end": 337
+    },
+    {
+      "title": "Глава 4. Сетевой уровень",
+      "level": 1,
+      "page_start": 338,
+      "page_end": 353
+    },
+    {
+      "title": "4.1. Введение",
+      "level": 2,
+      "page_start": 339,
+      "page_end": 346
+    },
+    {
+      "title": "4.1.1. Перенаправление и маршрутизация",
+      "level": 3,
+      "page_start": 340,
+      "page_end": 343
+    },
+    {
+      "title": "4.1.2. Модели служб сетевого уровня",
+      "level": 3,
+      "page_start": 344,
+      "page_end": 346
+    },
+    {
+      "title": "4.2. Сети с виртуальными каналами и дейтаграммные сети",
+      "level": 2,
+      "page_start": 347,
+      "page_end": 353
+    },
+    {
+      "title": "4.2.1. Сети с виртуальными каналами",
+      "level": 3,
+      "page_start": 348,
+      "page_end": 351
+    },
+    {
+      "title": "4.2.2. Дейтаграммные сети",
+      "level": 3,
+      "page_start": 352,
+      "page_end": 353
+    },
+    {
+      "title": "и дейтаграммных сетей",
+      "level": 1,
+      "page_start": 354,
+      "page_end": 370
+    },
+    {
+      "title": "4.3. Маршрутизатор изнутри",
+      "level": 2,
+      "page_start": 355,
+      "page_end": 370
+    },
+    {
+      "title": "4.3.1. Обработка данных ввода",
+      "level": 3,
+      "page_start": 359,
+      "page_end": 361
+    },
+    {
+      "title": "4.3.2. Коммутация",
+      "level": 3,
+      "page_start": 362,
+      "page_end": 364
+    },
+    {
+      "title": "4.3.3. Обработка исходящих данных",
+      "level": 3,
+      "page_start": 365,
+      "page_end": 365
+    },
+    {
+      "title": "4.3.4. Формирование очереди",
+      "level": 3,
+      "page_start": 365,
+      "page_end": 369
+    },
+    {
+      "title": "4.3.5. Уровень управления маршрутизацией",
+      "level": 3,
+      "page_start": 370,
+      "page_end": 370
+    },
+    {
+      "title": "в Интернете",
+      "level": 1,
+      "page_start": 371,
+      "page_end": 416
+    },
+    {
+      "title": "4.4.1. Формат дейтаграмм",
+      "level": 3,
+      "page_start": 372,
+      "page_end": 378
+    },
+    {
+      "title": "4.4.2. Адресация IPv4",
+      "level": 3,
+      "page_start": 379,
+      "page_end": 397
+    },
+    {
+      "title": "4.4.3. Протокол управляющих сообщений Интернета",
+      "level": 3,
+      "page_start": 398,
+      "page_end": 401
+    },
+    {
+      "title": "4.4.4. IPv6",
+      "level": 3,
+      "page_start": 402,
+      "page_end": 409
+    },
+    {
+      "title": "4.4.5. Краткое знакомство с IP-безопасностью",
+      "level": 3,
+      "page_start": 410,
+      "page_end": 412
+    },
+    {
+      "title": "4.5. Алгоритмы маршрутизации",
+      "level": 2,
+      "page_start": 413,
+      "page_end": 416
+    },
+    {
+      "title": "состояние каналов",
+      "level": 1,
+      "page_start": 417,
+      "page_end": 422
+    },
+    {
+      "title": "маршрутизации",
+      "level": 1,
+      "page_start": 423,
+      "page_end": 423
+    },
+    {
+      "title": "4.5.3. Иерархическая маршрутизация",
+      "level": 3,
+      "page_start": 434,
+      "page_end": 434
+    },
+    {
+      "title": "Оглавление",
+      "level": 1,
+      "page_start": 9,
+      "page_end": 439
+    },
+    {
+      "title": "4.6. Маршрутизация в Интернете",
+      "level": 2,
+      "page_start": 439,
+      "page_end": 439
+    },
+    {
+      "title": "в Интернете: RIP",
+      "level": 1,
+      "page_start": 440,
+      "page_end": 444
+    },
+    {
+      "title": "в Интернете: OSPF",
+      "level": 1,
+      "page_start": 445,
+      "page_end": 448
+    },
+    {
+      "title": "протокол BGP",
+      "level": 1,
+      "page_start": 449,
+      "page_end": 481
+    },
+    {
+      "title": "4.7. Широковещательная и групповая маршрутизация",
+      "level": 2,
+      "page_start": 462,
+      "page_end": 479
+    },
+    {
+      "title": "4.7.1. Алгоритмы широковещательной маршрутизации",
+      "level": 3,
+      "page_start": 462,
+      "page_end": 469
+    },
+    {
+      "title": "4.7.2. Групповая маршрутизация",
+      "level": 3,
+      "page_start": 470,
+      "page_end": 479
+    },
+    {
+      "title": "4.8. Заключение",
+      "level": 2,
+      "page_start": 480,
+      "page_end": 481
+    },
+    {
+      "title": "Глава 5. Канальный уровень: каналы, сети доступа и ЛВС",
+      "level": 1,
+      "page_start": 482,
+      "page_end": 514
+    },
+    {
+      "title": "5.1. Обзор канального уровня",
+      "level": 2,
+      "page_start": 483,
+      "page_end": 487
+    },
+    {
+      "title": "5.1.1. Службы канального уровня",
+      "level": 3,
+      "page_start": 485,
+      "page_end": 485
+    },
+    {
+      "title": "5.1.2. Протоколы, реализующие канальный уровень",
+      "level": 3,
+      "page_start": 486,
+      "page_end": 487
+    },
+    {
+      "title": "5.2. Приемы обнаружения и исправления ошибок",
+      "level": 2,
+      "page_start": 488,
+      "page_end": 496
+    },
+    {
+      "title": "5.2.1. Контроль четности",
+      "level": 3,
+      "page_start": 490,
+      "page_end": 492
+    },
+    {
+      "title": "5.2.2. Методы контрольных сумм",
+      "level": 3,
+      "page_start": 493,
+      "page_end": 493
+    },
+    {
+      "title": "5.2.3. Код циклического контроля",
+      "level": 3,
+      "page_start": 494,
+      "page_end": 496
+    },
+    {
+      "title": "5.3. Протоколы и каналы множественного доступа",
+      "level": 2,
+      "page_start": 497,
+      "page_end": 514
+    },
+    {
+      "title": "5.3.1. Протоколы разделения канала",
+      "level": 3,
+      "page_start": 500,
+      "page_end": 501
+    },
+    {
+      "title": "5.3.2. Протоколы произвольного доступа",
+      "level": 3,
+      "page_start": 502,
+      "page_end": 512
+    },
+    {
+      "title": "5.3.3. Протоколы поочередного доступа",
+      "level": 3,
+      "page_start": 513,
+      "page_end": 514
+    },
+    {
+      "title": "доступа в Интернет",
+      "level": 1,
+      "page_start": 515,
+      "page_end": 564
+    },
+    {
+      "title": "5.4. Локальная сеть с коммутируемым доступом",
+      "level": 2,
+      "page_start": 517,
+      "page_end": 547
+    },
+    {
+      "title": "5.4.1. Адресация канального уровня и протокол ARP",
+      "level": 3,
+      "page_start": 518,
+      "page_end": 526
+    },
+    {
+      "title": "5.4.2. Стандарт Ethernet",
+      "level": 3,
+      "page_start": 527,
+      "page_end": 534
+    },
+    {
+      "title": "5.4.3. Коммутаторы канального уровня",
+      "level": 3,
+      "page_start": 535,
+      "page_end": 543
+    },
+    {
+      "title": "5.4.4. Виртуальные локальные сети",
+      "level": 3,
+      "page_start": 544,
+      "page_end": 547
+    },
+    {
+      "title": "5.5. Виртуализация каналов: сеть как канальный уровень",
+      "level": 2,
+      "page_start": 548,
+      "page_end": 553
+    },
+    {
+      "title": "5.5.1. Многопротокольная коммутация по меткам",
+      "level": 3,
+      "page_start": 550,
+      "page_end": 553
+    },
+    {
+      "title": "5.6. Организация сетей для дата-центров",
+      "level": 2,
+      "page_start": 554,
+      "page_end": 560
+    },
+    {
+      "title": "5.7. Ретроспектива: один день из жизни запроса веб-страницы",
+      "level": 2,
+      "page_start": 561,
+      "page_end": 564
+    },
+    {
+      "title": "5.7.1. Начало: DHCP, UDP, IP и Ethernet",
+      "level": 3,
+      "page_start": 561,
+      "page_end": 563
+    },
+    {
+      "title": "5.7.2. Начало продолжается: DNS и ARP",
+      "level": 3,
+      "page_start": 564,
+      "page_end": 564
+    },
+    {
+      "title": "маршрутизация на DNS-сервер",
+      "level": 1,
+      "page_start": 565,
+      "page_end": 570
+    },
+    {
+      "title": "5.7.4. Клиент-серверное взаимодействие: TCP и HTTP",
+      "level": 3,
+      "page_start": 566,
+      "page_end": 567
+    },
+    {
+      "title": "5.8. Заключение",
+      "level": 2,
+      "page_start": 568,
+      "page_end": 570
+    },
+    {
+      "title": "Глава 6. Беспроводные и мобильные сети",
+      "level": 1,
+      "page_start": 571,
+      "page_end": 571
+    },
+    {
+      "title": "6.1. Введение",
+      "level": 2,
+      "page_start": 572,
+      "page_end": 577
+    },
+    {
+      "title": "6.2. Беспроводные каналы связи и характеристики сети",
+      "level": 2,
+      "page_start": 578,
+      "page_end": 585
+    },
+    {
+      "title": "6.2.1. CDMA",
+      "level": 3,
+      "page_start": 583,
+      "page_end": 585
+    },
+    {
+      "title": "6.3. Wi-Fi: Беспроводные локальные сети 802.11",
+      "level": 2,
+      "page_start": 586,
+      "page_end": 586
+    },
+    {
+      "title": "6.3.1. Архитектура сетей 802.11",
+      "level": 3,
+      "page_start": 588,
+      "page_end": 592
+    },
+    {
+      "title": "6.3.2. Протокол 802.11. МАС",
+      "level": 3,
+      "page_start": 593,
+      "page_end": 593
+    },
+    {
+      "title": "Оглавление",
+      "level": 1,
+      "page_start": 10,
+      "page_end": 617
+    },
+    {
+      "title": "6.3.3. Кадр IEEE 802.11",
+      "level": 3,
+      "page_start": 601,
+      "page_end": 604
+    },
+    {
+      "title": "6.3.4. Мобильность в рамках единой IP-подсети",
+      "level": 3,
+      "page_start": 605,
+      "page_end": 606
+    },
+    {
+      "title": "6.3.5. Дополнительные функции 802.11",
+      "level": 3,
+      "page_start": 607,
+      "page_end": 608
+    },
+    {
+      "title": "6.3.6. Персональные сети: Bluetooth и Zigbee",
+      "level": 3,
+      "page_start": 609,
+      "page_end": 612
+    },
+    {
+      "title": "6.4. Доступ в Интернет посредством сетей сотовой радиосвязи",
+      "level": 2,
+      "page_start": 613,
+      "page_end": 617
+    },
+    {
+      "title": "6.4.1. Обзор архитектуры сотовых сетей",
+      "level": 3,
+      "page_start": 614,
+      "page_end": 617
+    },
+    {
+      "title": "для абонентов сотовых сетей",
+      "level": 1,
+      "page_start": 618,
+      "page_end": 641
+    },
+    {
+      "title": "6.4.3. Переход к 4G: LTE",
+      "level": 3,
+      "page_start": 621,
+      "page_end": 623
+    },
+    {
+      "title": "6.5. Управление мобильностью: Принципы",
+      "level": 2,
+      "page_start": 624,
+      "page_end": 635
+    },
+    {
+      "title": "6.5.1. Адресация",
+      "level": 3,
+      "page_start": 627,
+      "page_end": 628
+    },
+    {
+      "title": "6.5.2. Перенаправление на мобильный узел",
+      "level": 3,
+      "page_start": 629,
+      "page_end": 635
+    },
+    {
+      "title": "6.6. Мобильный протокол Интернета",
+      "level": 2,
+      "page_start": 636,
+      "page_end": 641
+    },
+    {
+      "title": "связи",
+      "level": 1,
+      "page_start": 642,
+      "page_end": 648
+    },
+    {
+      "title": "6.7.1. Маршрутизация вызовов мобильного абонента",
+      "level": 3,
+      "page_start": 643,
+      "page_end": 644
+    },
+    {
+      "title": "6.7.2. Эстафетные передачи в сетях GSM",
+      "level": 3,
+      "page_start": 645,
+      "page_end": 648
+    },
+    {
+      "title": "верхних уровней",
+      "level": 1,
+      "page_start": 649,
+      "page_end": 653
+    },
+    {
+      "title": "6.9. Заключение",
+      "level": 2,
+      "page_start": 652,
+      "page_end": 653
+    },
+    {
+      "title": "Глава 7. Мультимедийные сетевые технологии",
+      "level": 1,
+      "page_start": 654,
+      "page_end": 684
+    },
+    {
+      "title": "7.1. Мультимедийные сетевые приложения",
+      "level": 2,
+      "page_start": 655,
+      "page_end": 661
+    },
+    {
+      "title": "7.1.1. Свойства видеоданных",
+      "level": 3,
+      "page_start": 655,
+      "page_end": 656
+    },
+    {
+      "title": "7.1.2. Свойства аудиоданных",
+      "level": 3,
+      "page_start": 657,
+      "page_end": 658
+    },
+    {
+      "title": "7.1.3. Виды сетевых мультимедийных приложений",
+      "level": 3,
+      "page_start": 659,
+      "page_end": 661
+    },
+    {
+      "title": "7.2. Потоковое вещание хранимых видеоданных",
+      "level": 2,
+      "page_start": 662,
+      "page_end": 684
+    },
+    {
+      "title": "7.2.1. UDP-вещание",
+      "level": 3,
+      "page_start": 664,
+      "page_end": 664
+    },
+    {
+      "title": "7.2.2. HTTP-вещание",
+      "level": 3,
+      "page_start": 665,
+      "page_end": 670
+    },
+    {
+      "title": "7.2.3. Адаптивное вещание и технология DASH",
+      "level": 3,
+      "page_start": 671,
+      "page_end": 671
+    },
+    {
+      "title": "7.2.4. Сети распространения контента (CDN)",
+      "level": 3,
+      "page_start": 672,
+      "page_end": 679
+    },
+    {
+      "title": "7.2.5. Примеры: Netflix, YouTube и Kankan",
+      "level": 3,
+      "page_start": 680,
+      "page_end": 684
+    },
+    {
+      "title": "7.3. IP-телефония",
+      "level": 2,
+      "page_start": 685,
+      "page_end": 685
+    },
+    {
+      "title": "доставкой данных",
+      "level": 1,
+      "page_start": 685,
+      "page_end": 710
+    },
+    {
+      "title": "7.3.2. Выравнивание колебаний на принимающей стороне",
+      "level": 3,
+      "page_start": 688,
+      "page_end": 690
+    },
+    {
+      "title": "7.3.3. Восстановление потерянных пакетов",
+      "level": 3,
+      "page_start": 691,
+      "page_end": 694
+    },
+    {
+      "title": "7.3.4. Исследование VoIP-приложения на примере Skype",
+      "level": 3,
+      "page_start": 695,
+      "page_end": 697
+    },
+    {
+      "title": "7.4. Протоколы для общения в режиме реального времени",
+      "level": 2,
+      "page_start": 698,
+      "page_end": 708
+    },
+    {
+      "title": "7.4.1. Протокол RTP",
+      "level": 3,
+      "page_start": 698,
+      "page_end": 701
+    },
+    {
+      "title": "7.4.2. Протокол SIP",
+      "level": 3,
+      "page_start": 702,
+      "page_end": 708
+    },
+    {
+      "title": "7.5. Поддержка мультимедийных сервисов на уровне сети",
+      "level": 2,
+      "page_start": 709,
+      "page_end": 710
+    },
+    {
+      "title": "негарантированной доставки",
+      "level": 1,
+      "page_start": 711,
+      "page_end": 729
+    },
+    {
+      "title": "7.5.2. Предоставление нескольких категорий обслуживания",
+      "level": 3,
+      "page_start": 713,
+      "page_end": 725
+    },
+    {
+      "title": "7.5.3. Архитектура DiffServ",
+      "level": 3,
+      "page_start": 726,
+      "page_end": 729
+    },
+    {
+      "title": "соединения: резервирование ресурсов и допуск вызовов",
+      "level": 1,
+      "page_start": 730,
+      "page_end": 912
+    },
+    {
+      "title": "7.6. Заключение",
+      "level": 2,
+      "page_start": 734,
+      "page_end": 912
+    }
+  ],
+  "settings": {
+    "toc_pages": "6-10",
+    "offset": 1,
+    "pattern": "^(?P<title>.+?)[\\s.·…]{2,}(?P<page>\\d+)\\s*$"
+  }
+}
