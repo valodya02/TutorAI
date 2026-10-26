@@ -1,4 +1,4 @@
-from typing import Annotated, Literal
+from typing import Annotated, Literal, Union
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
@@ -38,8 +38,8 @@ class ModuleBook(BaseModel):
 
 class ModuleRequest(Goal):
     topic: ShortText
-    modules: list[ShortText] = Field(max_length=30)
-    module: ShortText | dict = Field(default="", max_length=500)
+    modules: list[Union[ShortText, dict]] = Field(max_length=30)
+    module: Union[ShortText, dict] = Field(default="", max_length=500)
     summary: str = Field(default="", max_length=1000)
     kind: str = Field(default="concept", max_length=20)
     also: str = Field(default="", max_length=20)

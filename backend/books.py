@@ -31,6 +31,24 @@ def read_book(book_id: str) -> dict:
     return json.loads((book_dir(book_id) / "book.json").read_text(encoding="utf-8"))
 
 
+def get_section_text(book_id: str, n: int) -> str:
+    """Получить текст раздела из кэша или из PDF. Вызывает HTTPException при ошибке."""
+    d = book_dir(book_id)
+    book = read_book(book_id)
+    if not (0 <= n < len(book["toc"])):
+        raise HTTPException(404, "Раздел не найден")
+    sec = book["toc"][n]
+    cache = d / "sections" / f"{n}.txt"
+    if cache.exists():
+        text = cache.read_text(encoding="utf-8")
+    else:
+        doc = fitz.open(d / "book.pdf")
+        pages = range(sec["page_start"] - 1, sec["page_end"])
+        text = "\n\n".join(doc[p].get_text("text").strip() for p in pages)
+        cache.write_text(text, encoding="utf-8")
+    return text
+
+
 def write_book(d: Path, data: dict) -> None:
     (d / "book.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 

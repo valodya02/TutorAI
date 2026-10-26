@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
 from backend.book_plan import build_book_plan
+from backend.books import get_section_text
 from backend.llm import ask_json, llm
 from backend.prompts import KINDS, KIND_PROMPTS, PLAN_PROMPT, THEORY_COMMON, TOPIC_PROMPT
 from backend.schemas import BookGoal, Goal, ModuleRequest, TopicRequest
@@ -64,21 +65,20 @@ def theory(body: ModuleRequest):
             f"Модули темы по порядку: {'; '.join(module_titles)}\n"
             f"Напиши теорию для модуля: {module_title}\nКратко о модуле: {body.summary}")
 
-    # Добавляем информацию об учебнике, если есть
+    # Добавляем информацию и текст учебника, если есть
     if book_info:
         book_id = book_info["book_id"]
         if book_id:
-            from backend.books import read_book
             try:
-                book = read_book(book_id)
                 section = book_info["section"]
-                if 0 <= section < len(book.get("toc", [])):
-                    toc_entry = book["toc"][section]
-                    user += (f"\n\nИсточник: учебник «{book['title']}», "
-                            f"раздел «{toc_entry['title']}» (с. {book_info['page_start']}–{book_info['page_end']}). "
-                            f"Используй этот текст как основу для теории.")
-            except Exception:
+                text = get_section_text(book_id, section)
+                toc_entry = book_info.get("title", f"Раздел (с. {book_info['page_start']}–{book_info['page_end']})")
+                user += (f"\n\nИсточник: учебник, раздел «{toc_entry}» (с. {book_info['page_start']}–{book_info['page_end']}):\n"
+                        f"{text}\n\nИспользуй этот текст как основу для теории.")
+            except HTTPException:
                 pass  # Если учебник не прочитать, просто продолжаем без него
+            except Exception:
+                pass  # Любые другие ошибки игнорируем
 
     text, reason = llm(system, user, 5000, effort="medium")
     if not text:

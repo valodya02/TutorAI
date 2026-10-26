@@ -27,7 +27,9 @@ uvicorn backend.app:app --reload --port 8000
 - `backend/prompts.py` — промпты генерации (`PLAN_PROMPT`, `TOPIC_PROMPT`, `THEORY_COMMON`, `KIND_PROMPTS`).
 - `backend/schemas.py` — Pydantic-схемы с валидацией (`Goal`, `Course`, `TopicRequest`, `ModuleRequest`).
 - `backend/books.py` — загрузка PDF, оглавление, текст разделов.
+- `backend/books.py` — функция `get_section_text()` для извлечения текста раздела из кэша/PDF.
 - `backend/book_plan.py` — выбор разделов учебника под цель.
+- `backend/generation.py` — роут генерации теории (`/api/theory`) с поддержкой учебника и встраиванием текста раздела.
 - `frontend/index.html` — единственная страница.
 - `frontend/js/app.js` — состояние экрана и сценарии.
 - `frontend/js/api.js` — HTTP-клиент курсов.
