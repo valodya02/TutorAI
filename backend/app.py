@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import re
 import time
@@ -12,6 +13,8 @@ from groq import Groq, RateLimitError
 from pydantic import BaseModel
 from backend.books import router as books_router
 from backend.book_plan import build_book_plan
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -144,8 +147,9 @@ def llm(system, user, max_tokens, effort="low", json_mode=False):
         wait = e.response.headers.get("retry-after")
         hint = f"Повторите через {wait} с." if wait else "Повторите через минуту."
         raise HTTPException(429, f"Лимит токенов Groq. {hint}")
-    except Exception as e:
-        raise HTTPException(502, f"Ошибка генерации: {e}")
+    except Exception:
+        logger.exception("LLM generation failed")
+        raise HTTPException(502, "Ошибка генерации. Повторите запрос позже.")
     choice = resp.choices[0]
     return (choice.message.content or "").strip(), choice.finish_reason
 
