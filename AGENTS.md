@@ -25,9 +25,8 @@ uvicorn backend.app:app --reload --port 8000
 - `backend/courses.py` — CRUD-роуты курсов (`/api/courses`).
 - `backend/llm.py` — LLM-клиент Groq, функции `llm()` и `ask_json()`.
 - `backend/prompts.py` — промпты генерации (`PLAN_PROMPT`, `TOPIC_PROMPT`, `THEORY_COMMON`, `KIND_PROMPTS`).
-- `backend/schemas.py` — Pydantic-схемы с валидацией (`Goal`, `Course`, `TopicRequest`, `ModuleRequest`).
-- `backend/books.py` — загрузка PDF, оглавление, текст разделов.
-- `backend/books.py` — функция `get_section_text()` для извлечения текста раздела из кэша/PDF.
+- `backend/schemas.py` — Pydantic-схемы с валидацией (`Goal`, `Course`, `TopicRequest`, `ModuleRequest`, `ModuleBook`).
+- `backend/books.py` — загрузка PDF, оглавление, текст разделов, функция `get_section_text()`.
 - `backend/book_plan.py` — выбор разделов учебника под цель.
 - `backend/generation.py` — роут генерации теории (`/api/theory`) с поддержкой учебника и встраиванием текста раздела.
 - `frontend/index.html` — единственная страница.
@@ -36,8 +35,8 @@ uvicorn backend.app:app --reload --port 8000
 - `frontend/js/books.js` — UI загрузки и настройки оглавления.
 - `frontend/js/views.js` — рендер плана/модуля и Markdown+LaTeX.
 - `frontend/css/style.css` — стили, светлая/тёмная тема.
-- `data/courses/*.json` — сохранённые курсы (runtime, но закоммичены).
-- `data/books/<id>/` — PDF и `book.json` (runtime, но закоммичены).
+- `data/courses/*.json` — сохранённые курсы (runtime, исключены из Git).
+- `data/books/<id>/` — PDF и `book.json` (runtime, исключены из Git).
 - `requirements.txt` — зафиксированные Python-зависимости, включая PyMuPDF и multipart для PDF-upload.
 - `.env` — локальные секреты; не коммитить.
 
